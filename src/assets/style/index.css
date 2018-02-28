@@ -1,0 +1,26 @@
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Helvetica Neue', STHeiti, 'Microsoft Yahei', Tahoma, Simsun, sans-serif;
+  background-color: #fafafa;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+.am-popover-item-icon {
+  height: unset !important;
+  width: unset !important;
+}
+.slider-decorator-0 {
+  bottom: 0.5rem !important;
+}
+.am-tabs-default-bar-tab {
+  height: unset !important;
+  line-height: unset !important;
+}
