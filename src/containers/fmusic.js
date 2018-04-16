@@ -1,12 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import { full, flexCenter } from '../assets/style/const';
+import React from "react";
+import styled from "styled-components";
+import { full, flexCenter } from "../assets/style/const";
 
 const Wrapper = styled.div`
   position: absolute;
   ${full};
   ${flexCenter};
   overflow: hidden;
+  background-color: white;
+  > img {
+    height: 100%;
+    width: 100%;
+  }
 `;
 class FmusicContainer extends React.Component {
   static defaultProps = {};
@@ -20,7 +25,7 @@ class FmusicContainer extends React.Component {
     return (
       <Wrapper>
         <div>
-          <p>暂未找到Api接口~</p>
+          <img src={`http://t.cn/Rm8GsxZ`} alt="" />
         </div>
       </Wrapper>
     );

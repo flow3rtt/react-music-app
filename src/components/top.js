@@ -1,14 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import * as vars from '../assets/style/var';
-import { NavLink } from 'react-router-dom';
-import { Popover, Toast, Drawer } from 'antd-mobile';
-import Icon from './icon';
-import history from '../history';
-import { flexCenter } from '../assets/style/const';
+import React from "react";
+import styled from "styled-components";
+import * as vars from "../assets/style/var";
+import { NavLink } from "react-router-dom";
+import { Popover, Toast, Drawer, Switch } from "antd-mobile";
+import Icon from "./icon";
+import history from "../history";
 const { Item: PopoverItem } = Popover;
 const popoverIconStyle = {
-  fontSize: '2rem',
+  fontSize: "2rem",
   color: vars.themeColor
 };
 
@@ -69,10 +68,119 @@ const SearchWrapper = styled.div`
     }
   }
 `;
-const SidebarWrapper= styled.div`
-  ${flexCenter};
-  height:100%;
-`
+const SidebarWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.6rem;
+  > div:first-child {
+    flex: 1;
+    > div {
+      margin: 4rem 0;
+      display: flex;
+      flex-direction: column;
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.2rem;
+        *:first-child {
+          font-size: 1.24rem;
+        }
+        *:last-child {
+          font-size: 1rem;
+        }
+        span:last-of-type:not(:first-child) {
+          color: #eee;
+        }
+        .am-switch {
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+  > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.4rem;
+    border-top: ${vars.border};
+    > div {
+      display: flex;
+      align-items: center;
+      > i {
+        color: ${vars.themeColor};
+      }
+      > span {
+        font-size: 1rem;
+        padding-left: 0.4rem;
+      }
+    }
+    > div:last-child {
+      > i {
+        transform: rotate(180deg);
+        font-size: 2rem;
+      }
+    }
+  }
+`;
+
+const sidebarData = [
+  [
+    {
+      left: <span>个性装扮</span>,
+      right: <span>默认套装</span>
+    },
+    {
+      left: <span>消息中心</span>,
+      right: <span />
+    },
+    {
+      left: <span>免流量服务</span>,
+      right: <span>王卡听歌免流量</span>
+    }
+  ],
+  [
+    {
+      left: <span>定时关闭</span>,
+      right: <span />
+    },
+    {
+      left: <span>仅WIFI联网</span>,
+      right: <Switch />
+    },
+    {
+      left: <span>流量提醒</span>,
+      right: <Switch />
+    },
+    {
+      left: <span>听歌偏好</span>,
+      right: <Switch />
+    }
+  ],
+  [
+    {
+      left: <span>微云音乐网盘</span>,
+      right: <span />
+    },
+    {
+      left: <span>导入外部歌单</span>,
+      right: <span />
+    },
+    {
+      left: <span>清理空间</span>,
+      right: <span />
+    },
+    {
+      left: <span>帮助与反馈</span>,
+      right: <span />
+    },
+    {
+      left: <span>关于QQ音乐</span>,
+      right: <span />
+    }
+  ]
+];
 class Top extends React.Component {
   static defaultProps = {};
   constructor(props) {
@@ -82,7 +190,7 @@ class Top extends React.Component {
       drawerOpen: false
     };
   }
-  popoverVisibleChange = (bool) => {
+  popoverVisibleChange = bool => {
     this.setState({
       popovervisible: bool
     });
@@ -97,20 +205,41 @@ class Top extends React.Component {
       }
     );
   };
-  drawerOpenChange = (bool) => {
+  drawerOpenChange = bool => {
     this.setState({
       drawerOpen: bool
     });
   };
   enterSearch = () => {
-    history.push('/search');
+    history.push("/search");
   };
   render() {
     const {} = this.props;
     const { popovervisible, drawerOpen } = this.state;
     const drawerSidebar = (
       <SidebarWrapper>
-        <p>未完待续~</p>
+        <div>
+          {sidebarData.map((group, gi) => (
+            <div key={gi}>
+              {group.map((v, i) => (
+                <div key={i}>
+                  {v.left}
+                  {v.right}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div>
+          <div>
+            <Icon className={"icon-shezhi"} />
+            <span>设置</span>
+          </div>
+          <div>
+            <Icon className={"icon-tuichu6"} />
+            <span>退出登录/关闭</span>
+          </div>
+        </div>
       </SidebarWrapper>
     );
 
