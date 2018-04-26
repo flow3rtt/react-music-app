@@ -15,8 +15,8 @@ const Top = styled.div`
   > div:first-child {
     width: 100%;
     text-align: center;
-    height: 2.6rem;
-    line-height: 2.6rem;
+    height: 4rem;
+    line-height: 4rem;
     > img {
       display: inline-block;
       height: 100%;
@@ -25,6 +25,7 @@ const Top = styled.div`
     > span {
       vertical-align: top;
       padding-left: 0.6rem;
+      font-size:1.4rem;
     }
   }
   > div:last-child {
@@ -42,7 +43,7 @@ const Top = styled.div`
       > span:last-child {
         padding-top: 0.4rem;
         font-size: 1rem;
-        color: #eee;
+        color: #c0c0c0;
       }
     }
   }
@@ -75,7 +76,7 @@ const Middle = styled.div`
       }
       > span:last-child {
         font-size: 1rem;
-        color: #eee;
+        color: #c0c0c0;
       }
     }
   }
@@ -142,7 +143,7 @@ class MmusicContainer extends React.Component {
       <Wrapper>
         <Top>
           <div>
-            <img src={`http://dwz.cn/7NEy8W`} alt="" />
+            <img src={require('../assets/img/head.jpg')} alt="" />
             <span>xing.</span>
           </div>
           <div>

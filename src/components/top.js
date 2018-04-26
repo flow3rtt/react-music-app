@@ -91,7 +91,7 @@ const SidebarWrapper = styled.div`
           font-size: 1rem;
         }
         span:last-of-type:not(:first-child) {
-          color: #eee;
+          color: #c0c0c0;
         }
         .am-switch {
           transform: scale(0.8);

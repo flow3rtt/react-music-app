@@ -25,7 +25,7 @@ class FmusicContainer extends React.Component {
     return (
       <Wrapper>
         <div>
-          <img src={`http://t.cn/Rm8GsxZ`} alt="" />
+          <img src={require('../assets/img/fx.gif')} alt="" />
         </div>
       </Wrapper>
     );
